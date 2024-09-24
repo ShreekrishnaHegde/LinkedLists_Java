@@ -48,6 +48,54 @@ public class LL {
         size+=1;
     }
 
+    public void insert(int val,int index){
+            if(index==0)
+                insertFirst(val);
+            if(index==size)
+                insertLast(val);
+            Node temp=head;
+            for (int i = 1; i < index; i++) {
+                temp=temp.next;
+            }
+            Node node=new Node(val,temp.next);
+            temp.next=node;
+            size+=1;
+    }
+
+    public void deleteFirst(){
+        head=head.next;
+        if(head==null)
+            tail=null;
+        size--;
+    }
+
+    public Node get(int index){
+        Node node=head;
+        for (int i = 0; i < index; i++) {
+            node=node.next;
+        }
+        return node;
+    }
+
+    public void deleteLast(){
+        if(size<=1){
+            deleteLast();
+            return;
+        }
+        Node secondLast=get(size-2);
+        tail=secondLast;
+        tail.next=null;
+    }
+
+    public void delete(int index){
+        if (index==0)
+            deleteFirst();
+        if(index==size-1)
+            deleteLast();
+        Node prev=get(index-1);
+        prev.next=prev.next.next;
+    }
+    //To display the linked list.
     public void display(){
         Node temp=head;
         while (temp!=null){

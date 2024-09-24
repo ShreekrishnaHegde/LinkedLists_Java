@@ -4,7 +4,15 @@
         list.insertFirst(3);
         list.insertFirst(8);
         list.insertLast(11);
+        list.insertLast(15);
+        list.insert(1000,2);
         list.display();
+        list.deleteLast();
+        list.display();
+        list.delete(3);
+        list.display();
+
+
 
     }
 
