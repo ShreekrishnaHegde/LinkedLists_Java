@@ -77,6 +77,16 @@ public class LL {
         return node;
     }
 
+    public Node find(int value){
+        Node node=head;
+        while (node!=null){
+            if (node.value==value)
+                return node;
+            node=node.next;
+        }
+        return node;
+    }
+
     public void deleteLast(){
         if(size<=1){
             deleteLast();
